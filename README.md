@@ -39,8 +39,10 @@ nist-mof-screening/
 ├── notebooks/
 │   └── ZIF8_CO2CH4_Full_Pipeline.ipynb   Full pipeline — data to results
 ├── data/
-│   ├── co2_consensus.csv                  Validated CO₂ consensus isotherm
-│   └── methane_consensus.csv              Validated CH₄ consensus isotherm
+│   ├── co2_screened_isotherms.csv         Tóth-fitted CO₂ isotherms + consensus stats
+│   ├── ch4_screened_isotherms.csv         Tóth-fitted CH₄ isotherms + consensus stats
+│   ├── iast_sweep_results.csv             Pre-computed IAST sweep (pyIAST, 256 rows)
+│   └── binary_experimental.csv            Chmelik binary experimental data
 ├── figures/
 │   ├── all_isotherms_combined_labeled_final.png
 │   ├── co2_full_A.png
@@ -90,7 +92,7 @@ Isotherms are interpolated onto a common logarithmic pressure grid. At each grid
 
 ### IAST
 
-Binary mixture predictions computed using the Ideal Adsorbed Solution Theory (Myers & Prausnitz, 1965), implemented via [pyIAST](https://github.com/CorySimon/pyIAST) and [RUPTURA](https://github.com/iRASPA/RUPTURA).
+Binary mixture predictions computed using the Ideal Adsorbed Solution Theory (Myers & Prausnitz, 1965), implemented via [pyIAST](https://github.com/CorySimon/pyIAST) with a custom `TothIsotherm` class providing the analytical spreading pressure integral for the Tóth model.
 
 ### Tóth model
 
